@@ -5,7 +5,7 @@ import FormControl from '@mui/material/FormControl'
 import Select, { SelectChangeEvent } from '@mui/material/Select'
 
 const SelectMode: React.FC = () => {
-  const [mode, setMode] = React.useState('')
+  const [mode, setMode] = React.useState('light')
 
   const handleChange = (event: SelectChangeEvent) => {
     setMode(event.target.value as string)

@@ -4,12 +4,16 @@ import SelectMode from './Components/SelectMode'
 
 const App: React.FC = () => {
   return (
-    <Container disableGutters maxWidth={false} sx={{ height: '100vh', backgroundColor: 'primary.main' }}>
+    <Container
+      disableGutters
+      maxWidth={false}
+      sx={{ height: '100vh', backgroundColor: (theme: any) => theme.palette.primary.main }}
+    >
       <Box
         sx={{
-          backgroundColor: 'primary.light',
+          backgroundColor: (theme: any) => theme.palette.primary.light,
           width: '100%',
-          height: '48px',
+          height: (theme: any) => theme.trello.appBarHeight,
           display: 'flex',
           alignItems: 'center'
         }}
@@ -18,16 +22,22 @@ const App: React.FC = () => {
       </Box>
 
       <Box
-        sx={{ backgroundColor: 'primary.dark', width: '100%', height: '58px', display: 'flex', alignItems: 'center' }}
+        sx={{
+          backgroundColor: (theme: any) => theme.palette.primary.dark,
+          width: '100%',
+          height: (theme: any) => theme.trello.boardBarHeight,
+          display: 'flex',
+          alignItems: 'center'
+        }}
       >
         Board Bar
       </Box>
 
       <Box
         sx={{
-          backgroundColor: 'primary.main',
+          backgroundColor: (theme: any) => theme.palette.primary.main,
           width: '100%',
-          height: 'calc(100vh-58px - 48px)',
+          height: (theme: any) => `calc(100vh - ${theme.trello.boardBarHeight} - ${theme.trello.appBarHeight})`,
           display: 'flex',
           alignItems: 'center'
         }}
