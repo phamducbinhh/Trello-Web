@@ -3,12 +3,14 @@ import InputLabel from '@mui/material/InputLabel'
 import MenuItem from '@mui/material/MenuItem'
 import FormControl from '@mui/material/FormControl'
 import Select, { SelectChangeEvent } from '@mui/material/Select'
+import { useColorScheme } from '@mui/material'
 
 const SelectMode: React.FC = () => {
-  const [mode, setMode] = React.useState('light')
+  const { mode, setMode } = useColorScheme()
 
   const handleChange = (event: SelectChangeEvent) => {
-    setMode(event.target.value as string)
+    const selectedMode = event.target.value as any
+    setMode(selectedMode)
   }
 
   return (
